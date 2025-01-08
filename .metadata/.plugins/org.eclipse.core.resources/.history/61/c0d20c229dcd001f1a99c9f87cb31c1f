@@ -1,0 +1,10 @@
+package com.effigo.firstProj;
+
+public class Laptop {
+
+	public void compile() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
