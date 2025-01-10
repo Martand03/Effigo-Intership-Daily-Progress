@@ -7,3 +7,7 @@ Date-: 09/01/2025
 ---
 - SpringDemo -: Here I first made a simple maven project using archtype as quickstart then added dependencies of Spring framework to learn how to shift from simple maven to spring, learnt how the spring handles object creation, why and how to use spring xml, beans and its various tags.
 - Completed 50% of the assigned course for Git & GitHub.
+---
+Date-: 10/01/2025
+---
+- Completed the Git & GitHub course.
