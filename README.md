@@ -11,3 +11,5 @@ Date-: 09/01/2025
 Date-: 10/01/2025
 ---
 - Completed the Git & GitHub course.
+- Completed 55 % of the DB & SQL Querying course.
+- Started with a CRUD operations project using SpringBoot + ReactJS + PostgreSQL Database  
