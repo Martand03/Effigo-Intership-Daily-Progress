@@ -14,6 +14,6 @@ Date-: 10/01/2025
 - Completed 55 % of the DB & SQL Querying course.
 - Started with a CRUD operations project using SpringBoot + ReactJS + PostgreSQL Database  
 ---
-Date-: 10/01/2025
+Date-: 11/01/2025
 ---
 - Completed 1 project of CRUD operations using SpringBoot + ReactJS + PostgreSQL Database learnt use of various annotations, lombok, some new hooks in react of react-table, learnt new db the PostgreSQL.
