@@ -1,2 +1,4 @@
-# Ignore the .metadata folder
+# Ignore the .metadata, employee-service, employee-web folder, theses are the projects and are on java-projects branch
 .metadata/
+employee-service/
+employee-web/
