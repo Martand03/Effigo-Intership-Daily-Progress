@@ -1,0 +1,5 @@
+# Ignore the .metadata, DemoApp, DemoSpring, MyApp folder, these are on the main branch
+.metadata/
+ DemoApp/
+ DemoSpring/
+ MyApp/
