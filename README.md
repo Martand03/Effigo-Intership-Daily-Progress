@@ -1,25 +1,59 @@
-Date-: 08/01/2025
+Progress Tracker
 ---
-- DemoApp -: It is an simple spring boot project to understand the setups, the meaning of the terms used and a very basic single web page project.
-- MyApp -: This is an project where I am learning spring(only) framework and types of injection (field, constructor, setter), Autowiring, Primary and Qualifier Annotations.
+Spring Boot and Frameworks
 ---
-Date-: 09/01/2025
+DemoApp:
 ---
-- SpringDemo -: Here I first made a simple maven project using archtype as quickstart then added dependencies of Spring framework to learn how to shift from simple maven to spring, learnt how the spring handles object creation, why and how to use spring xml, beans and its various tags.
-- Completed 50% of the assigned course for Git & GitHub.
+-Created a simple Spring Boot project to understand setups, terminology, and basic structure.
+
+-Developed a single web page application as a foundational exercise.
 ---
-Date-: 10/01/2025
+MyApp:
 ---
-- Completed the Git & GitHub course.
-- Completed 55 % of the DB & SQL Querying course.
-- Started with a CRUD operations project using SpringBoot + ReactJS + PostgreSQL Database  
+-Learned about the Spring framework.
+
+-Explored types of dependency injection: field, constructor, and setter.
+
+-Studied annotations: Autowiring, Primary, and Qualifier.
 ---
-Date-: 11/01/2025
+SpringDemo:
 ---
-- Java-Projects are on the branch "java-projects"
-- Completed 1 project of CRUD operations using SpringBoot + ReactJS + PostgreSQL Database learnt use of various annotations, lombok, some new hooks in react of react-table, learnt new db the PostgreSQL.
-- Completed the full course for DB & SQL Querying course.
+-Transitioned from a simple Maven project (quickstart archetype) to Spring framework.
+
+-Learned how Spring handles object creation.
+
+-Explored Spring XML configurations, beans, and related tags.
 ---
-Date-: 11/01/2025
+Git and GitHub
 ---
-- Completed the full course of JUnit with all the practice questions.
+-Completed a comprehensive course on Git & GitHub.
+
+Database and SQL
+---
+-Completed a course on Database & SQL Querying.
+
+CRUD Operations Project
+---
+-Developed a CRUD application using:
+
+-Backend: Spring Boot.
+
+-Frontend: ReactJS.
+
+-Database: PostgreSQL.
+
+Learned:
+
+-Usage of Spring annotations and Lombok.
+
+-React hooks like react-table.
+
+-PostgreSQL database operations.
+
+JUnit Testing
+---
+-Completed a full course on JUnit, including all practice questions.
+
+Repository Management
+---
+Organized Java projects under the branch "java-projects."
