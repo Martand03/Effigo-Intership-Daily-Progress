@@ -1,13 +1,13 @@
 package com.inEffigo.springboot.myfirstwebapp.todo;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-@Repository
+@Service
 public class TodoService {
 
     private static List<Todo> todos;
