@@ -2,3 +2,5 @@
 .metadata/
 employee-service/
 employee-web/
+demo-springboot-with-docker/
+projects-with-various-table-relations/
