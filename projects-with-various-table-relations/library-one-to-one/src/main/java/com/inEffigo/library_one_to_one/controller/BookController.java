@@ -49,4 +49,41 @@ public class BookController {
         return book.get().getBookDetails();
     }
 
+    @RequestMapping(value = "/updateBookDetails", method = RequestMethod.PUT)
+    @ResponseBody
+    public String updateBookDetailsByBookId(@RequestParam Long id, @RequestBody BookDetails updateBookDetails){
+        Optional<Book> optionalBook = bookService.getBookById(id);
+        if(optionalBook.isPresent()){
+            Book book1 = optionalBook.get();
+            BookDetails existingBookDetails = book1.getBookDetails();
+
+//            existingBookDetails.setPublicationYear(updateBookDetails.getPublicationYear());
+            existingBookDetails.setDescription(updateBookDetails.getDescription());
+
+            bookService.saveBook(book1);
+            return "Book Details Updated";
+        }
+        else{
+            return "Error in Book Details Updated";
+        }
+
+    }
+
+    @RequestMapping(value = "/updateBook", method = RequestMethod.PUT)
+    @ResponseBody
+    public String updateBookById(@RequestParam Long id, @RequestBody Book updateBook){
+        Optional<Book> optionalBook = bookService.getBookById(id);
+        if(optionalBook.isPresent()){
+            Book book = optionalBook.get();
+
+            book.setName(updateBook.getName());
+            book.setAuthor(updateBook.getAuthor());
+
+            bookService.saveBook(book);
+            return "Book Updated";
+        }else{
+            return "Error in book update";
+        }
+    }
+
 }
