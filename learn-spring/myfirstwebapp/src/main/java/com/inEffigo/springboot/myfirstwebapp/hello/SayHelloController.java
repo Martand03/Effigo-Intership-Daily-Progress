@@ -1,14 +1,17 @@
 package com.inEffigo.springboot.myfirstwebapp.hello;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:3000")
 public class SayHelloController {
 
     //"say-hello" => "Hello! What are you learning today?"
-    @RequestMapping("say-hello")
+    @RequestMapping(value = "say-hello", method = RequestMethod.GET)
     @ResponseBody
     public String sayHello(){
         return "Hello! What are you learning today?";
