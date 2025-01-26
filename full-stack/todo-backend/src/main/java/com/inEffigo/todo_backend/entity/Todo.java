@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(schema = "todos")
+//@Table(schema = "todos")
 public class Todo {
     @Id
     @GeneratedValue

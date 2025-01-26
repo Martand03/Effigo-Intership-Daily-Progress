@@ -36,16 +36,42 @@ export function Login(){
                 Authentication Failed. Please check your credentials.
                 </div>
             )}
-            <div className="LoginForm">
-                <div>
-                    <label>Username: </label>
-                    <input type="text" name="username" value={username} onChange={handleUsernameChange}/>
+            <div className="d-flex justify-content-center align-items-center">
+                <div className="card p-4 shadow-lg" style={{ maxWidth: "400px", width: "100%" }}>
+                    <h2 className="text-center mb-4">Login</h2>
+                    <form>
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">Username</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="username"
+                                name="username"
+                                value={username}
+                                onChange={handleUsernameChange}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            className="btn btn-primary w-100"
+                            name="login"
+                            onClick={handleSubmit}
+                        >
+                            Login
+                        </button>
+                    </form>
                 </div>
-                <div>
-                    <label>Password: </label>
-                    <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
-                </div>
-                <button name="login" onClick={handleSubmit}>Login</button>
             </div>
         </div>
     )

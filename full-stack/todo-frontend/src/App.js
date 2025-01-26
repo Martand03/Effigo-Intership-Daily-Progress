@@ -44,9 +44,17 @@ function App() {
               <LogoutComponent/>
             </AuthenticatedRoute>
           } />
+          <Route path='/todo/:id' element={
+            <AuthenticatedRoute>
+              <TodoDetails/>
+            </AuthenticatedRoute>
+            } />
+          <Route path='/addTodo/:username' element={
+            <AuthenticatedRoute>
+              <AddTodo/>
+            </AuthenticatedRoute>
+            } />
           <Route path='/login' element={<Login/>} />
-          <Route path='/todo/:id' element={<TodoDetails/>} />
-          <Route path='/addTodo/:username' element={<AddTodo/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
