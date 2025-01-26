@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  todo-backend:
+    build:
+      context: ./todo-backend
+    ports:
+      - "3333:3333"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/tododb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Martandpsql@03
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: tododb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Martandpsql@03
+    ports:
+      - "5433:5432"
+    networks:
+      - app-network
+
+  todo-frontend:
+    build:
+      context: ./todo-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - todo-backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
