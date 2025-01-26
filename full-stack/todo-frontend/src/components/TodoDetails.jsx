@@ -91,6 +91,7 @@ export function TodoDetails(){
                                 </fieldset>
                                 <div>
                                     <button className="btn btn-success m-5" type="submit">Save</button>
+                                    <button className="btn btn-danger" onClick={() => navigate("/todos")}>Cancel</button>
                                 </div>
                             </Form>
                         )

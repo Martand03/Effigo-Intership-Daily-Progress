@@ -3,7 +3,7 @@ import { Login } from "./Login";
 function TodoApp(){
     return(
         <div>
-            ToDo App
+            <h1>ToDo App</h1>
             <Login/>
         </div>
     )
