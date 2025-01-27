@@ -1,7 +1,9 @@
 package com.inEffigo.employee_many_to_one.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +16,8 @@ public class Department {
     private String name;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Employee> employees;
+    @JsonIgnore
+    private List<Employee> employees = new ArrayList<>();
 
     public Department(){
 
