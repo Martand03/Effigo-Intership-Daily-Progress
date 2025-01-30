@@ -1,5 +1,6 @@
 package com.inEffigo.multi_table_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,15 +16,18 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     @Id
+    @GeneratedValue
     private Long userId;
 
     private String userName;
     private String userEmail;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Order> orders = new ArrayList<>();
 
     @ManyToMany
+    @JsonManagedReference
     @JoinTable(
             name = "user_courses",
             schema = "multi_table_proj",
