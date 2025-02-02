@@ -55,4 +55,12 @@ public class UserService {
         }
     }
 
+    // update user Email
+    public User updateUserEmail(Long userId, String userNewEmail){
+        User user = userRepository.findById(userId)
+                .orElseThrow(()-> new RuntimeException("User not found"));
+        user.setUserEmail(userNewEmail);
+        return userRepository.save(user);
+    }
+
 }

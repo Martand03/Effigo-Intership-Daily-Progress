@@ -41,4 +41,11 @@ public class UserController {
         User updatedUser = userService.enrollUserInCourse(userId, courseId);
         return ResponseEntity.ok(updatedUser);
     }
+
+    @PatchMapping("/{userId}/email")
+    public ResponseEntity<User> updateUserEmail(@PathVariable Long userId, @RequestParam String userNewEmail){
+        userService.updateUserEmail(userId, userNewEmail);
+        return ResponseEntity.ok().build();
+    }
+
 }

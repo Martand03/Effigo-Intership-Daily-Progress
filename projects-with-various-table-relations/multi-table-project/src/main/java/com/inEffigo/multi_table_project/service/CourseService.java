@@ -53,4 +53,12 @@ public class CourseService {
             throw new RuntimeException("Course or category not found check id's");
         }
     }
+
+    // update course price
+    public void updateCoursePrice(Long courseId, Double newPrice){
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(()->new RuntimeException("Course not found"));
+        course.setCoursePrice(newPrice);
+        courseRepository.save(course);
+    }
 }
