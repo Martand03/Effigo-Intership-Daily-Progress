@@ -43,4 +43,11 @@ public class CourseController {
         Course updatedCourse = courseService.addCourseToCategory(courseId, catId);
         return ResponseEntity.ok(updatedCourse);
     }
+
+    // update course price
+    @PatchMapping("/{courseId}/price")
+    public ResponseEntity<Void> updateCoursePrice(@PathVariable Long courseId, @RequestParam Double newPrice){
+        courseService.updateCoursePrice(courseId, newPrice);
+        return ResponseEntity.ok().build();
+    }
 }
