@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    /* General body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Title styling */
+    h1 {
+      font-size: 2.5rem;
+      color: #4ade80;
+      margin-bottom: 20px;
+    }
+
+    /* Paragraph styling */
+    p {
+      font-size: 1.25rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    /* Link styling */
+    a {
+      font-size: 1rem;
+      color: #fff;
+      background-color: #4ade80;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #38b44a;
+    }
+  </style>
+</head>
+<body>
+<h1>Welcome to Admin Dashboard</h1>
+<p>This page is accessible only to admins.</p>
+<a href="/">Home Page</a> <br/>
+<a href="/logout">Logout</a>
+</body>
+</html>
