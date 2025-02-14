@@ -20,7 +20,7 @@ public class OlsBackendSpringApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH")
-						.allowedOrigins("http://localhost:3000")
+						.allowedOrigins("http://localhost:5173","http://localhost:3000")
 						.allowedHeaders("*")
 						.allowCredentials(true);
 			}
