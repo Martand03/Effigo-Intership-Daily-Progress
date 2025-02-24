@@ -2,10 +2,8 @@ package com.inEffigo.spring_microservice_L1.controller;
 
 import com.inEffigo.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -34,12 +32,20 @@ public class UserController {
 //    }
 
     @PostMapping("/batch")
-    public Flux<String> sendBatchUsers(@RequestBody List<UserDto> users){
+    public Mono<String> sendBatchUsers(@RequestBody List<UserDto> users){
         return webClient.post()
                 .uri("/userL2/batch")
                 .body(BodyInserters.fromValue(users))
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToMono(String.class);
+    }
+
+    @PostMapping("/importUsers")
+    public Mono<String> sendBatchUsersStart(){
+        return webClient.post()
+                .uri("/userL2/importUsers")
+                .retrieve()
+                .bodyToMono(String.class);
     }
 
 }
