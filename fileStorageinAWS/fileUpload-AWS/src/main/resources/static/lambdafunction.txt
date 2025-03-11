@@ -1,0 +1,65 @@
+import boto3
+import os
+import json
+import base64
+
+s3 = boto3.client('s3')
+sns = boto3.client('sns')
+
+BUCKET_1 = "martand03-buck"
+BUCKET_2 = "martand03-buck-3"
+SNS_TOPIC_ARN = ""
+MAX_BUCKET_SIZE_MB = 10
+
+def get_bucket_size(bucket_name):
+    try:
+        response = s3.list_objects_v2(Bucket=bucket_name)
+        total_size = sum(obj['Size'] for obj in response.get('Contents', [])) / (1024 * 1024)
+        return total_size
+    except Exception as e:
+        return 0  # If bucket is empty or doesn't exist, return 0 MB
+
+def send_sns_alert(message):
+    sns.publish(TopicArn=SNS_TOPIC_ARN, Message=message)
+
+def create_bucket(bucket_name):
+    try:
+        # us-east-1 does not require LocationConstraint
+        if os.getenv('AWS_REGION') == 'us-east-1':
+            s3.create_bucket(Bucket=bucket_name)
+        else:
+            s3.create_bucket(Bucket=bucket_name, CreateBucketConfiguration={'LocationConstraint': os.getenv('AWS_REGION')})
+
+        send_sns_alert(f"Bucket {bucket_name} was created automatically.")
+    except Exception as e:
+        send_sns_alert(f"Failed to create bucket {bucket_name}: {str(e)}")
+        raise
+
+
+def lambda_handler(event, context):
+    try:
+        data = json.loads(event['body'])
+        file_name = data['fileName']
+        file_data = base64.b64decode(data['fileData'])
+
+        if get_bucket_size(BUCKET_1) < MAX_BUCKET_SIZE_MB:
+            bucket = BUCKET_1
+        else:
+            try:
+                s3.head_bucket(Bucket=BUCKET_2)  # Check if BUCKET_2 exists
+            except Exception:
+                create_bucket(BUCKET_2)  # Create BUCKET_2 if it doesn't exist
+
+            if get_bucket_size(BUCKET_2) < MAX_BUCKET_SIZE_MB:
+                bucket = BUCKET_2
+                send_sns_alert(f"Bucket-1 full. Switching to {BUCKET_2}")
+            else:
+                send_sns_alert("Both buckets are full. Uploads stopped.")
+                return {"statusCode": 500, "body": json.dumps({"error": "Both S3 buckets are full!"})}
+
+        s3.put_object(Bucket=bucket, Key=file_name, Body=file_data)
+
+        return {"statusCode": 200, "body": json.dumps({"message": f"File uploaded to {bucket}"})}
+
+    except Exception as e:
+        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
