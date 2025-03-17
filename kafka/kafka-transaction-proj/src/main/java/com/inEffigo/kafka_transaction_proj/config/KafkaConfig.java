@@ -2,6 +2,8 @@ package com.inEffigo.kafka_transaction_proj.config;
 
 
 import com.inEffigo.kafka_transaction_proj.entity.MasterItem;
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -40,5 +42,12 @@ public class KafkaConfig {
     @Bean
     public KafkaTemplate<String, MasterItem> kafkaTemplate(){
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public AdminClient adminClient() {
+        Map<String, Object> configs = new HashMap<>();
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        return AdminClient.create(configs);
     }
 }
