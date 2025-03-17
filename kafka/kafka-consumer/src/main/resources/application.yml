@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: kafka-consumer
+  datasource:
+    url: jdbc:postgresql://localhost:5433/effigo_projects
+    username: postgres
+    password: Martandpsql@03
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      default_schema: kafka
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: master-items-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
